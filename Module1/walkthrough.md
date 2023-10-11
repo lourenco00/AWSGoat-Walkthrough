@@ -154,3 +154,84 @@ Host 10.0.48.71
   IdentityFile /shared/files/.ssh/keys/sophia.pem
   User sophia                                   
 ````
+
+## Lambda
+
+````
+┌──(kali㉿kali)-[~/…/AWSGoat/module1/shared/scripts]
+└─$ aws lambda list-functions --region us-east-1
+{
+    "Functions": [
+        {
+            "FunctionName": "blog-application-data",
+            "FunctionArn": "arn:aws:lambda:us-east-1:315333988455:function:blog-application-data",
+            "Runtime": "python3.9",
+            "Role": "arn:aws:iam::315333988455:role/blog_app_lambda_data",
+            "Handler": "lambda_function.lambda_handler",
+            "CodeSize": 5622,
+            "Description": "",
+            "Timeout": 3,
+            "MemorySize": 256,
+            "LastModified": "2023-10-11T09:42:05.396+0000",
+            "CodeSha256": "Fv+wneeKLjHQ/l2vFh4RagWabMWrfrGYS2JWKXAH3JQ=",
+            "Version": "$LATEST",
+            "Environment": {
+                "Variables": {
+                    "JWT_SECRET": "T2BYL6#]zc>Byuzu"
+                }
+            },
+            "TracingConfig": {
+                "Mode": "PassThrough"
+            },
+            "RevisionId": "8bc046a5-1d69-4927-af67-8d2fef80bee2",
+            "Layers": [
+                {
+                    "Arn": "arn:aws:lambda:us-east-1:315333988455:layer:bcrypt-pyjwt:1",
+                    "CodeSize": 958331
+                }
+            ],
+            "PackageType": "Zip",
+            "Architectures": [
+                "x86_64"
+            ],
+            "EphemeralStorage": {
+                "Size": 512
+            },
+            "SnapStart": {
+                "ApplyOn": "None",
+                "OptimizationStatus": "Off"
+            }
+        },
+        {
+            "FunctionName": "blog-application",
+            "FunctionArn": "arn:aws:lambda:us-east-1:315333988455:function:blog-application",
+            "Runtime": "nodejs14.x",
+            "Role": "arn:aws:iam::315333988455:role/blog_app_lambda",
+            "Handler": "index.handler",
+            "CodeSize": 416087,
+            "Description": "",
+            "Timeout": 3,
+            "MemorySize": 128,
+            "LastModified": "2023-10-11T09:42:24.184+0000",
+            "CodeSha256": "Rg+u4EXXP+oOnvXNgLjnm/ZH1fVbOfCjNa/k4Qy37XA=",
+            "Version": "$LATEST",
+            "TracingConfig": {
+                "Mode": "PassThrough"
+            },
+            "RevisionId": "8945f303-0759-4f25-9a84-b5ef7af95ba4",
+            "PackageType": "Zip",
+            "Architectures": [
+                "x86_64"
+            ],
+            "EphemeralStorage": {
+                "Size": 512
+            },
+            "SnapStart": {
+                "ApplyOn": "None",
+                "OptimizationStatus": "Off"
+            }
+        }
+    ]
+}
+````
+
