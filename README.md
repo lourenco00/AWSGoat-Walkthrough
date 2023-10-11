@@ -9,7 +9,7 @@ Escalation Path:
 
 ![Description Module 1](https://user-images.githubusercontent.com/65826354/179526761-7f473e3d-f71c-429d-bf49-16958c5cb7a6.png)
 
-URL: https://j4nbgp3ssj.execute-api.us-east-1.amazonaws.com  
+URL: https://j4nbgp3ssj.execute-api.us-east-1.amazonaws.com/prod/react
 
 ## Move to Module 2
 
