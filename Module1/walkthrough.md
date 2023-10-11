@@ -234,4 +234,10 @@ Host 10.0.48.71
     ]
 }
 ````
+Found JWT Secret:
 
+            "Environment": {
+                "Variables": {
+                    "JWT_SECRET": "T2BYL6#]zc>Byuzu"
+                }
+            },
