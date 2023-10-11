@@ -1025,4 +1025,4 @@ aws dynamodb list-tables --region us-east-1
     "ConsumedCapacity": null
 }
 ````
-````
+With this information we are able to login in each user, and in case we can't due to special characters, we can always reset the password with the secret question.
