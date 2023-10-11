@@ -7,5 +7,5 @@ The first module features a serverless blog application utilizing AWS Lambda, S3
 
 Escalation Path:
 
-[https://user-images.githubusercontent.com/65826354/179526761-7f473e3d-f71c-429d-bf49-16958c5cb7a6.png]
+![Description Module 1](https://user-images.githubusercontent.com/65826354/179526761-7f473e3d-f71c-429d-bf49-16958c5cb7a6.png)
 
