@@ -679,6 +679,13 @@ aws apigateway get-resources --rest-api-id j4nbgp3ssj --region us-east-1
     ]
 }
 ````
+If we look carefully we find a GET Method in the API called /dump, so let's search for it and see what does it contain:  
+https://uklmns71xk.execute-api.us-east-1.amazonaws.com/dump  
+If we search for this we will get a Forbidden error, but we know that this endpoint is accessible, and with a little search we can see some common paths for the api, one of them being /v1 or /v2: https://stackoverflow.com/questions/72339224/aws-v1-vs-v2-api-for-listing-apis-on-aws-api-gateway-return-different-data-for-t     
+
+![image](https://github.com/lourenco00/AWSGoat-Walkthrough/assets/91602746/ad819058-567d-40d2-b83b-9c54313f9267)
+
+
 ## DynamoDB
 ### List Tables
 ````
