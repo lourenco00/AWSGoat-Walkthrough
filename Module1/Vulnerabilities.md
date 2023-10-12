@@ -85,3 +85,129 @@ and it will return all the information of the users, including this:
 ![image](https://github.com/lourenco00/AWSGoat-Walkthrough/assets/91602746/00623430-9280-4119-aea7-20c0ab0b8f80)
 
 ![image](https://github.com/lourenco00/AWSGoat-Walkthrough/assets/91602746/91fbedd9-bafb-42c7-8c06-d9a07d8d08e4)
+
+
+### Sensitive Data Exposure 
+
+````
+┌──(kali㉿kali)-[~/Labs/AWSGoat/module1]
+└─$ aws apigateway get-resources --rest-api-id uklmns71xk --region us-east-1
+{
+    "items": [
+        {
+            "id": "09tmbm",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "login",
+            "path": "/login",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "1z2wgh",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "ban-user",
+            "path": "/ban-user",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "2okpqe",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "change-profile",
+            "path": "/change-profile",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "36qlrh",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "unban-user",
+            "path": "/unban-user",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "3ze9li",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "register",
+            "path": "/register",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "4dc0f6",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "search-author",
+            "path": "/search-author",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "5rqhcw",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "xss",
+            "path": "/xss",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "5v5vi2",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "list-posts",
+            "path": "/list-posts",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "5y7rs1",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "change-auth",
+            "path": "/change-auth",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "6kab1r",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "user-details-modal",
+            "path": "/user-details-modal",
+            "resourceMethods": {
+                "OPTIONS": {},
+                "POST": {}
+            }
+        },
+        {
+            "id": "b9rfza",
+            "parentId": "sdtw1na2qa",
+            "pathPart": "dump",
+            "path": "/dump",
+            "resourceMethods": {
+                "GET": {},
+                "OPTIONS": {}
+            }
+        },
+````
+
+If we look carefully we find a GET Method in the API called /dump, so let's search for it and see what does it contain:  
+https://uklmns71xk.execute-api.us-east-1.amazonaws.com/dump  
+If we search for this we will get a Forbidden error, but we know that this endpoint is accessible, and with a little search we can see some common paths for the api, one of them being /v1 or /v2: https://stackoverflow.com/questions/72339224/aws-v1-vs-v2-api-for-listing-apis-on-aws-api-gateway-return-different-data-for-t     
+
+![image](https://github.com/lourenco00/AWSGoat-Walkthrough/assets/91602746/ad819058-567d-40d2-b83b-9c54313f9267)
