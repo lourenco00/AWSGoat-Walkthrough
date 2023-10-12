@@ -1,4 +1,10 @@
 # Module 1
+
+### Beggining
+Once you start the challenge you'll enter on a webpage like the following:  
+
+![main Page](https://github.com/lourenco00/AWSGoat-Walkthrough/blob/main/Module1/images/Screenshot_2023-10-11_17_29_07.png?raw=true)  
+
 ### List S3 buckets
 ````
 ┌──(kali㉿kali)-[~]
@@ -1026,5 +1032,6 @@ aws dynamodb list-tables --region us-east-1
 }
 ````
 With this information we are able to login in each user, and in case we can't due to special characters, we can always reset the password with the secret question.  
-By answering the secret question I was able to change the credentials of a user and logged in their account:   
+By answering the secret question I was able to change the credentials of a user and logged in their account:  
+
   ![Dmitry User](https://github.com/lourenco00/AWSGoat-Walkthrough/blob/main/Module1/images/image.png)
