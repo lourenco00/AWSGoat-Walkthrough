@@ -48,7 +48,7 @@ download: s3://dev-blog-awsgoat-bucket-315333988455/shared/files/.ssh/keys/sophi
 download: s3://dev-blog-awsgoat-bucket-315333988455/static/js/787.8c65ad62.chunk.js.map to static/js/787.8c65ad62.chunk.js.map
 download: s3://dev-blog-awsgoat-bucket-315333988455/static/js/787.8c65ad62.chunk.js to static/js/787.8c65ad62.chunk.js
 ````
-### User pwned
+### Script that gives us a User shell
 ````
 ┌──(kali㉿kali)-[~/Labs/AWSGoat/module1]
 └─$ cd shared      
@@ -87,7 +87,7 @@ info: Adding user `bob' to group `users' ...
 bob
 
 ````
-### Root pwned
+### Script that gives us a root shell
 ````
 ┌──(kali㉿kali)-[~/Labs/AWSGoat/module1]
 └─$ cd shared 
