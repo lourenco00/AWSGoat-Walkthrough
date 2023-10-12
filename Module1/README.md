@@ -1025,6 +1025,6 @@ aws dynamodb list-tables --region us-east-1
     "ConsumedCapacity": null
 }
 ````
-With this information we are able to login in each user, and in case we can't due to special characters, we can always reset the password with the secret question.
-By answering the secret question I was able to change the credentials of a user and logged in their account:  
-![Dmitry User](https://github.com/lourenco00/AWSGoat-Walkthrough/blob/main/Module1/images/image.png)
+With this information we are able to login in each user, and in case we can't due to special characters, we can always reset the password with the secret question.  
+By answering the secret question I was able to change the credentials of a user and logged in their account:   
+  ![Dmitry User](https://github.com/lourenco00/AWSGoat-Walkthrough/blob/main/Module1/images/image.png)
