@@ -57,6 +57,7 @@ Host 10.0.48.71
   IdentityFile /shared/files/.ssh/keys/sophia.pem
   User sophia                                   
 ````
+![Keys user Vincent](https://github.com/lourenco00/AWSGoat-Walkthrough/blob/main/Module1/images/Screenshot_2023-10-11_12_03_02.png)
 
 #### JWT Secret
 
