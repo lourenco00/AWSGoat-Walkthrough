@@ -49,6 +49,9 @@ download: s3://dev-blog-awsgoat-bucket-315333988455/static/js/787.8c65ad62.chunk
 download: s3://dev-blog-awsgoat-bucket-315333988455/static/js/787.8c65ad62.chunk.js to static/js/787.8c65ad62.chunk.js
 ````
 ### Script that gives us a User shell
+
+This script can be found on Scripts folder  
+
 ````
 ┌──(kali㉿kali)-[~/Labs/AWSGoat/module1]
 └─$ cd shared      
@@ -88,6 +91,9 @@ bob
 
 ````
 ### Script that gives us a root shell
+
+This script can be found on Scripts folder  
+
 ````
 ┌──(kali㉿kali)-[~/Labs/AWSGoat/module1]
 └─$ cd shared 
